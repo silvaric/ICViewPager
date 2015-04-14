@@ -821,7 +821,12 @@
         
         CGRect frame = tabView.frame;
         frame.origin.x = contentSizeWidth;
-        int tabWidthAtIndex = [self.dataSource viewPager:self widthForTabAtIndex:i];
+        int tabWidthAtIndex;
+        if ([self.dataSource respondsToSelector:@selector(viewPager:widthForTabAtIndex:)]) {
+            tabWidthAtIndex = [self.dataSource viewPager:self widthForTabAtIndex:i];
+        }else{
+            tabWidthAtIndex = [self.tabWidth floatValue];
+        }
         frame.size.width = tabWidthAtIndex;
         tabView.frame = frame;
         
