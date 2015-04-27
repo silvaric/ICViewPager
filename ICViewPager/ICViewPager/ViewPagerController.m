@@ -794,7 +794,9 @@
         self.tabsView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.tabsView.backgroundColor = self.tabsViewBackgroundColor;
         self.tabsView.scrollsToTop = NO;
-        self.tabsView.scrollEnabled = ([self.delegate viewPager:self valueForOption:ViewPagerOptionTabSwipeEnabled withDefault:1.0] == 1.0);
+        if ([self.delegate respondsToSelector:@selector(viewPager:valueForOption:withDefault:)])
+            self.tabsView.scrollEnabled = ([self.delegate viewPager:self valueForOption:ViewPagerOptionTabSwipeEnabled withDefault:1.0] == 1.0);
+        else self.tabsView.scrollEnabled = YES;
         self.tabsView.showsHorizontalScrollIndicator = NO;
         self.tabsView.showsVerticalScrollIndicator = NO;
         self.tabsView.tag = kTabViewTag;
