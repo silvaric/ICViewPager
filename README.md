@@ -70,6 +70,16 @@ Alternatively, you can implement `- viewPager:contentViewForTabAtIndex:` method 
 
 The `- viewPager:contentViewControllerForTabAtIndex:` and `- viewPager:contentViewForTabAtIndex:` dataSource methods are both defined optional. But, you should implement at least one of them! They are defined as optional to provide you an option.
 
+```
+#pragma mark - ViewPagerDataSource
+- (CGFloat)viewPager:(ViewPagerController *)viewPager widthForTabAtIndex:(NSUInteger)index{
+  return 50;
+}
+```
+
+Returns the width for tab at index. If you want to change width for every tabs, use this method.
+**PLZ FIX MY POOR ENGLISH ;( **
+
 All delegate methods are optional.
 
 ```
@@ -125,6 +135,7 @@ Every option has a default value. So
  * `ViewPagerOptionCenterCurrentTab`: 1.0: `YES`, 0.0: `NO`, defines if tabs should be centered, with the given tabWidth. Defaults to `NO`
  * `ViewPagerOptionFixFormerTabsPositions`: 1.0: `YES`, 0.0: `NO`, defines if the active tab should be placed margined by the offset amount to the left. Effects only the former tabs. If set 1.0 (`YES`), first tab will be placed at the same position with the second one, leaving space before itself. Defaults to `NO`
  * `ViewPagerOptionFixLatterTabsPositions`: 1.0: `YES`, 0.0: `NO`, like `ViewPagerOptionFixFormerTabsPositions`, but effects the latter tabs, making them leave space after themselves. Defaults to `NO`
+ * `ViewPagerOptionTabSwipeEnabled`: 1.0: `YES`, 0.0: `NO`, if you want tabs scrolling only when tab tapped, set this option `YES`. Default to `YES`. **PLZ FIX MY POOR ENGLISH ;( **
 
 ### Components
 
