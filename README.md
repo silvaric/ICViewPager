@@ -13,7 +13,9 @@ Just copy ViewPagerController.m and ViewPagerController.h files to your project.
 
 Or you can use CocoaPods (as this is the recommended way).
 
-`pod 'ICViewPager'`
+```
+pod 'ICViewPager', git: 'https://github.com/nmbakfm/ICViewPager.git'
+```
 
 ## Usage
 
