@@ -201,9 +201,12 @@
 }
 
 - (void)layoutSubviews {
-    
     CGFloat topLayoutGuide = 0.0;
-    if (IOS_VERSION_7) {
+    
+    BOOL _bIgnoreTopLayoutGuide = [self.delegate respondsToSelector:@selector(viewPager:valueForOption:withDefault:)] && ([self.delegate viewPager:self valueForOption:ViewPagerOptionIgnoreTopLayoutGuide withDefault:0.0] == 1.0);
+    
+    
+    if (IOS_VERSION_7 && !_bIgnoreTopLayoutGuide) {
         topLayoutGuide = 20.0;
         if (self.navigationController && !self.navigationController.navigationBarHidden) {
             topLayoutGuide += self.navigationController.navigationBar.frame.size.height;

@@ -29,7 +29,8 @@ typedef NS_ENUM(NSUInteger, ViewPagerOption) {
     ViewPagerOptionCenterCurrentTab,
     ViewPagerOptionFixFormerTabsPositions,
     ViewPagerOptionFixLatterTabsPositions,
-    ViewPagerOptionTabSwipeEnabled
+    ViewPagerOptionTabSwipeEnabled,
+    ViewPagerOptionIgnoreTopLayoutGuide
 };
 
 /**
