@@ -83,14 +83,14 @@
 }
 - (void)drawRect:(CGRect)rect {
     
-    CGFloat originX = _lineSpacing / 2;
-    
-    CGRect refactorRect = rect;
-    refactorRect.size.width = refactorRect.size.width - originX;
-    rect = refactorRect;
-    
     // Draw an indicator line if tab is selected
     if (self.selected) {
+        
+        CGFloat paddingOffset = 5;
+        CGFloat originX = (_lineSpacing * 0.5) - paddingOffset;
+        
+        CGRect refactorRect = rect;
+        rect.size.width = refactorRect.size.width - originX;
         
         UIBezierPath *bezierPath = [UIBezierPath bezierPath];
         
@@ -990,7 +990,11 @@
             viewController.view = [[UIView alloc] init];
         }
         
-        [self.contents replaceObjectAtIndex:index withObject:viewController];
+        if (viewController) {
+            [self.contents replaceObjectAtIndex:index withObject:viewController];
+        } else {
+            return nil;
+        }
     }
     
     return [self.contents objectAtIndex:index];
