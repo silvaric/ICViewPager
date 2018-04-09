@@ -80,10 +80,10 @@
 }
 
 #pragma mark - ViewPagerDataSource
-- (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
+- (NSUInteger)numberOfTabsForViewPager:(ICViewPagerController *)viewPager {
     return self.numberOfTabs;
 }
-- (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
+- (UIView *)viewPager:(ICViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
     
     UILabel *label = [UILabel new];
     label.backgroundColor = [UIColor clearColor];
@@ -96,7 +96,7 @@
     return label;
 }
 
-- (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
+- (UIViewController *)viewPager:(ICViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     
     ContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
     
@@ -106,7 +106,7 @@
 }
 
 #pragma mark - ViewPagerDelegate
-- (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
+- (CGFloat)viewPager:(ICViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
     
     switch (option) {
         case ViewPagerOptionStartFromSecondTab:
@@ -123,13 +123,15 @@
             return UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ? 128.0 : 96.0;
         case ViewPagerOptionFixFormerTabsPositions:
             return 1.0;
+        case ViewPagerOptionTabsSpacing:
+            return 50.0;
         case ViewPagerOptionFixLatterTabsPositions:
             return 1.0;
         default:
             return value;
     }
 }
-- (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color {
+- (UIColor *)viewPager:(ICViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color {
     
     switch (component) {
         case ViewPagerIndicator:
@@ -141,6 +143,12 @@
         default:
             return color;
     }
+}
+
+- (CGFloat)viewPager:(ICViewPagerController *)viewPager widthForTabAtIndex:(NSUInteger)index {
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:12.0], NSFontAttributeName, nil];
+    return [[NSString stringWithFormat:@"Tab #%i", index] sizeWithAttributes:attributes].width;
 }
 
 @end

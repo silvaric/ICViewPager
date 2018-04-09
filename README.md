@@ -1,3 +1,20 @@
+@09/04/18:
+Added :
+ViewPagerOptionCleanOutSightContents: 1.0: YES, 0.0: NO, clean out of sight contents. Defaults to YES
+
+Also : 
+"Fix crashes when tap on a tab during scrolling tabsView"
+https://github.com/charliefancelli/ICViewPager/commit/bf957b586809dcd6c82b6e493723bd495efec0b8
+
+"fix crashes with pager when swiping too fast"
+https://github.com/tarkalabs/ICViewPager/commit/186c19d9cd4c7938429407ad4a160f7e79ce9611
+
+"implements new option: yOffset. It can be used to set vertical offset…"
+https://github.com/DZamataev/ICViewPager/commit/4564ce1d2d910e0b8f7f3bdca7a13721079c5667
+
+"Refactored and fixed issues with viewpager"
+https://github.com/pplant/ICViewPager/commit/46059db2df9ae7fb18454a6be6d5b0ca9f13ee6c
+
 ICViewPager
 ===========
 
