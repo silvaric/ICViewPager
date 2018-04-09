@@ -89,28 +89,10 @@
     refactorRect.size.width = refactorRect.size.width - originX;
     rect = refactorRect;
     
-    UIBezierPath *bezierPath;
-    
-    // Draw top line
-    bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint:CGPointMake(originX, 0.0)];
-    [bezierPath addLineToPoint:CGPointMake(CGRectGetWidth(rect), 0.0)];
-    [[UIColor colorWithWhite:197.0/255.0 alpha:0.75] setStroke];
-    [bezierPath setLineWidth:1.0];
-    [bezierPath stroke];
-    
-    // Draw bottom line
-    bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint:CGPointMake(originX, CGRectGetHeight(rect))];
-    [bezierPath addLineToPoint:CGPointMake(CGRectGetWidth(rect), CGRectGetHeight(rect))];
-    [[UIColor colorWithWhite:197.0/255.0 alpha:0.75] setStroke];
-    [bezierPath setLineWidth:1.0];
-    [bezierPath stroke];
-    
     // Draw an indicator line if tab is selected
     if (self.selected) {
         
-        bezierPath = [UIBezierPath bezierPath];
+        UIBezierPath *bezierPath = [UIBezierPath bezierPath];
         
         // Draw the indicator
         [bezierPath moveToPoint:CGPointMake(originX, CGRectGetHeight(rect) - 1.0)];
