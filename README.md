@@ -1,8 +1,11 @@
 @09/04/18:
+
 Added :
+
 ViewPagerOptionCleanOutSightContents: 1.0: YES, 0.0: NO, clean out of sight contents. Defaults to YES
 
 Also : 
+
 "Fix crashes when tap on a tab during scrolling tabsView"
 https://github.com/charliefancelli/ICViewPager/commit/bf957b586809dcd6c82b6e493723bd495efec0b8
 
